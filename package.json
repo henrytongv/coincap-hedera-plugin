@@ -1,0 +1,24 @@
+{
+  "name": "coincap-hedera-plugin",
+  "author": "HenryTongV",
+  "description": "Plugin for the Hedera Agent Kit JS, to connect to the CoinCap API",
+  "license": "MIT",
+  "version": "1.0.1",
+  "main": "index.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henrytongv/coincap-hedera-plugin.git"
+  },  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coincap",
+    "agent-kit",
+    "hedera"
+  ],
+  "dependencies": {
+    "zod": "3.25.76"
+  }
+}
