@@ -30,7 +30,7 @@ COINCAP_BEARER_TOKEN=******************************
 import { CoinCapHederalugin } from 'coincap-hedera-plugin/plugin.js';
 ```
 
-4.- Add the query and account plugins from core Hedera Agent code, and, this new plugin, in the tools secion of the agent
+4.- Add the query and account plugins from core Hedera Agent code, and, this new plugin, in the plugins secion of the agent
 
 ```js
 const hederaAgentToolkit = new HederaLangchainToolkit({
