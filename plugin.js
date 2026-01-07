@@ -18,10 +18,10 @@ Use this tool to get the current HBAR price in USD currency. Use it to exchange 
     },
 });
 // Export the plugin
-export const CoinCapHederalugin = {
-    name: 'CoinCapHederalugin',
-    version: '1.0.0',
+export const CoinCapHederaPlugin = {
+    name: 'CoinCapHederaPlugin',
+    version: '1.0.1',
     description: 'An example plugin to get the current HBAR price in USD currency. Use it to exchange an amount of HBAR into a USD amount',
     tools: (context) => { return [getHBARpriceInUSDTool(context)]; }
 };
-export default CoinCapHederalugin;
+export default CoinCapHederaPlugin;

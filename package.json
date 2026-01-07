@@ -3,7 +3,7 @@
   "author": "HenryTongV",
   "description": "Plugin for the Hedera Agent Kit JS, to connect to the CoinCap API",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "private": false,
   "repository": {

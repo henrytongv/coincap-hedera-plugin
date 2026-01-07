@@ -27,7 +27,7 @@ COINCAP_BEARER_TOKEN=******************************
 
 ```js
 // CoinCap plugin to connect to CoinCap API
-import { CoinCapHederalugin } from 'coincap-hedera-plugin/plugin.js';
+import { CoinCapHederaPlugin } from 'coincap-hedera-plugin/plugin.js';
 ```
 
 4.- Import the coreAccountQueryPlugin plugin code in your index.js (Hedera Agent)
@@ -44,7 +44,7 @@ const hederaAgentToolkit = new HederaLangchainToolkit({
 client,
 configuration: {
     tools: [],
-    plugins: [coreAccountQueryPlugin, CoinCapHederalugin], // <---- Add the plugin here
+    plugins: [coreAccountQueryPlugin, CoinCapHederaPlugin], // <---- Add the plugin here
 ```
 
 6.- Use a prompt to ask for you current balance and tell the agent to want it in USD currency, for example like this:
