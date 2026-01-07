@@ -91,6 +91,12 @@ None
 |---------|----------|-------------|
 | Result  | `Number` | Value in USD currency of 1 HBAR according to CoinCap |
 
+#### Example Prompt
+
+```
+Get my balance in HBAR and give it to me converted to USD currency
+```
+
 ## Optional: Plugin distribution, only needed to publish the npm package
 
 ```bash
