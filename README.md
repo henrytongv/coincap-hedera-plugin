@@ -30,17 +30,24 @@ COINCAP_BEARER_TOKEN=******************************
 import { CoinCapHederalugin } from 'coincap-hedera-plugin/plugin.js';
 ```
 
-4.- Add the query and account plugins from core Hedera Agent code, and, this new plugin, in the plugins secion of the agent
+4.- Import the coreAccountQueryPlugin plugin code in your index.js (Hedera Agent)
+
+This core plugin is already provided by the Hedera, it is needed to query the account (read its balance)
+```js
+import { coreAccountQueryPlugin } from 'hedera-agent-kit';
+```
+
+5.- Add the query and account plugins from core Hedera Agent code, and, this new plugin, in the plugins section of the agent
 
 ```js
 const hederaAgentToolkit = new HederaLangchainToolkit({
 client,
 configuration: {
     tools: [],
-    plugins: [coreQueriesPlugin, coreAccountPlugin, CoinCapHederalugin], // <---- Add these
+    plugins: [coreAccountQueryPlugin, CoinCapHederalugin], // <---- Add the plugin here
 ```
 
-5.- Use a prompt to ask for you current balance and tell the agent to want it in USD currency, for example like this:
+6.- Use a prompt to ask for you current balance and tell the agent to want it in USD currency, for example like this:
 
 ```js
 const response = await agent.invoke(
@@ -49,7 +56,16 @@ const response = await agent.invoke(
 );
 ```
 
-6.- Now you can run the example agent and you should get your current HBAR balance converted to USD currency
+> [!NOTE]
+> The previous prompt results in a multi-step tool invocation:
+> 
+> - Fetch the HBAR balance.
+> - Fetch the current HBAR price.
+> - Convert the balance to USD.
+> 
+> It is important for developers to be aware of, as configurations that limit the agent to only one tool call per request will cause this prompt to fail or behave incorrectly.
+
+7.- Now you can run the example agent and you should get your current HBAR balance converted to USD currency
 
 ```bash
 node index.js
@@ -57,7 +73,27 @@ node index.js
 
 ## Tools
 
+### Get HBAR price in USD
+Invoke the CoinCap API to get the current price in USD of one HBAR
+
+#### JS Function
 ```js
-// Use the CoinCap API to get the current price in USD of one HBAR
 function getHBARPriceInUSD()
+```
+
+#### Input Parameters
+
+None
+
+#### Output Values
+
+| Value   | Type     | Description |
+|---------|----------|-------------|
+| Result  | `Number` | Value in USD currency of 1 HBAR according to CoinCap |
+
+## Optional: Plugin distribution, only needed to publish the npm package
+
+```bash
+npm login
+npm publish
 ```
