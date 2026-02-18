@@ -97,6 +97,16 @@ None
 Get my balance in HBAR and give it to me converted to USD currency
 ```
 
+## Optional: Add .ts declaration in a Typescript project
+
+When using the plugin in a TS project, users may encounter errors due to the missing .d.ts declaration file. For that scenario the recommendation is to create a custom declaration file ( for example coincap-hedera-plugin.d.ts ) with this content:
+
+```
+declare module 'coincap-hedera-plugin/plugin.js' {
+  export const CoinCapHederaPlugin: any;
+}
+```
+
 ## Optional: Plugin distribution, only needed to publish the npm package
 
 ```bash
