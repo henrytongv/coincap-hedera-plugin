@@ -2,7 +2,7 @@
 
 A plugin for [Hedera Agent Kit JS](https://github.com/hashgraph/hedera-agent-kit-js) that provides integration with the CoinCap API
 
-In this plugin we use CoinCap to get the current price in USD of one HBAR and combine it with the power of the Hedera Agent Kit to get your current balance of HBA in USD currency.
+In this plugin we use CoinCap to get the current price in USD of one HBAR and combine it with the power of the Hedera Agent Kit to get your current balance of HBAR in USD currency.
 
 ## Overview
 
@@ -27,7 +27,15 @@ COINCAP_BEARER_TOKEN=******************************
 
 ```js
 // CoinCap plugin to connect to CoinCap API
-import { CoinCapHederaPlugin } from 'coincap-hedera-plugin/plugin.js';
+import { CoinCapHederaPlugin } from 'coincap-hedera-plugin';
+```
+
+If you want to restrict the agent to a specific tool from this plugin, import the tool-name map as well:
+
+```js
+import { CoinCapHederaPlugin, coinCapHederaPluginToolNames } from 'coincap-hedera-plugin';
+
+const { GET_HBAR_PRICE_IN_USD_TOOL } = coinCapHederaPluginToolNames;
 ```
 
 4.- Import the coreAccountQueryPlugin plugin code in your index.js (Hedera Agent)
@@ -97,15 +105,9 @@ None
 Get my balance in HBAR and give it to me converted to USD currency
 ```
 
-## Optional: Add .ts declaration in a Typescript project
+## TypeScript support
 
-When using the plugin in a TS project, users may encounter errors due to the missing .d.ts declaration file. For that scenario the recommendation is to create a custom declaration file ( for example coincap-hedera-plugin.d.ts ) with this content:
-
-```
-declare module 'coincap-hedera-plugin/plugin.js' {
-  export const CoinCapHederaPlugin: any;
-}
-```
+Type declarations are shipped with the package (`plugin.d.ts`), so no additional setup is required in TypeScript projects.
 
 ## Optional: Plugin distribution, only needed to publish the npm package
 

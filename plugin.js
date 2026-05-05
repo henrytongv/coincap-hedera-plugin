@@ -1,14 +1,18 @@
 import { z } from 'zod';
 import { getHBARPriceInUSD } from "./tool.js";
 
+export const coinCapHederaPluginToolNames = {
+    GET_HBAR_PRICE_IN_USD_TOOL: 'get_hbar_price_in_USD_tool',
+};
+
 const getHBARpriceInUSDTool = (_context) => ({
-    method: 'get_hbar_price_in_USD_tool',
+    method: coinCapHederaPluginToolNames.GET_HBAR_PRICE_IN_USD_TOOL,
     name: 'get HBAR price in USD Tool',
     description: `
-This is an example plugin tool that demonstrates how to get the current HBAR price in USD currency.
+Gets the current HBAR price in USD via the CoinCap API. Provided by the CoinCap plugin (CoinCapHederaPlugin).
 
 Usage:
-Use this tool to get the current HBAR price in USD currency. Use it to exchange an amount of HBAR into a USD amount.
+Use this tool when the user asks for the current HBAR price, needs to convert an amount of HBAR into USD, or asks which plugin provides price data from CoinCap.
 `,
     parameters: z.object({}),
     outputParser: undefined,
